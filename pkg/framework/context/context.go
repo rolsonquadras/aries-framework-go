@@ -172,6 +172,7 @@ func (p *Provider) tryToHandle(svc service.InboundHandler, msg service.DIDCommMs
 // InboundMessageHandler return an inbound message handler.
 func (p *Provider) InboundMessageHandler() transport.InboundMessageHandler {
 	return func(message []byte, myDID, theirDID string) error {
+		fmt.Println(string(message))
 		msg, err := service.ParseDIDCommMsgMap(message)
 		if err != nil {
 			return err

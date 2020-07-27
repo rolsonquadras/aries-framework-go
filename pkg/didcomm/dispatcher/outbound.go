@@ -93,6 +93,8 @@ func (o *OutboundDispatcher) Send(msg interface{}, senderVerKey string, des *ser
 			return fmt.Errorf("failed marshal to bytes: %w", err)
 		}
 
+		fmt.Println(string(req))
+
 		// update the outbound message with transport return route option [all or thread]
 		req, err = o.addTransportRouteOptions(req, des)
 		if err != nil {
